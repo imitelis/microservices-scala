@@ -1,6 +1,6 @@
-name := "users-app"
+name := "data-app"
 version := "1.0"
-scalaVersion := "2.13.10"
+scalaVersion := "2.12.10"
 
 Compile / mainClass := Some("Main")
 assembly / mainClass := Some("Main")
@@ -16,12 +16,10 @@ assemblyMergeStrategy in assembly := {
 // sbt tasks, consider https://github.com/spray/sbt-revolver/
 fork := true
 
+resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/releases/"
+
 libraryDependencies ++= Seq(
-  "org.apache.commons" % "commons-lang3" % "3.12.0",
-  "com.twitter" %% "finagle-http" % "21.6.0",
-  "org.slf4j" % "slf4j-simple" % "2.0.13",
-  "org.slf4j" % "slf4j-api" % "2.0.13",
-  "io.circe" %% "circe-core" % "0.14.5",
-  "io.circe" %% "circe-generic" % "0.14.5",
-  "io.circe" %% "circe-parser" % "0.14.5"
+  "com.twitter" %% "finatra-http" % "21.2.0",
+  "com.jakehschwartz" % "finatra-swagger_2.12" % "2.9.0",
+  "io.swagger" %% "swagger-scala-module" % "1.0.7-SNAPSHOT"
 )
